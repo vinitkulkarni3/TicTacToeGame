@@ -5,6 +5,8 @@
  */
 package com.tictactoegame;
 
+import java.util.Scanner;
+
 public class TicTacToeGame 
 {
     public static void createBoard()
@@ -15,9 +17,34 @@ public class TicTacToeGame
             Board[i] = ' ';
         }
     }
+    
+    
+    public static void chooseOption()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Choose small letter 'X' or 'O' : ");
+        char value = sc.next().charAt(0);
+        if(value == 'x' || value == 'o')
+        {
+            if(value == 'x')
+            {
+                System.out.println("X is For Player");
+            }
+            else if(value == 'o')
+            {
+                System.out.println("O is For Computer");
+            }
+        }
+        else
+        {
+            System.out.println("Please Select X or O character Only");
+        }
+        
+    }
 
     public static void main(String[] args)
     {
         createBoard();
+        chooseOption();
     }
 }

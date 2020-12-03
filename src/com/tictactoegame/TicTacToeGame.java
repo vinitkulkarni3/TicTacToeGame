@@ -11,16 +11,16 @@ import java.util.Scanner;
 
 public class TicTacToeGame 
 {
-    public static char Board[] = new char[10];
+    public static char board[] = new char[10];
     //UC1
     public static char[] createBoard()
     {
         
-        for(int i=0; i<Board.length; i++)
+        for(int i=0; i<board.length; i++)
         {
-            Board[i] = ' ';
+            board[i] = ' ';
         }
-        return Board;
+        return board;
     }
     
     //UC2
@@ -40,26 +40,16 @@ public class TicTacToeGame
             System.out.println("Please Select X or O character Only");
         }
         
-        return optionResult;
-        
+        return optionResult;   
     }
     
     //UC3
     public static void displayBoard()
     {
-        for(int i=1; i<4; i++)
+        for(int i=1;i<4;i++)
         {
-            System.out.print(" | "+Board[i]+" | ");
-        }
-        System.out.println();
-        for(int i=4; i<7; i++)
-        {
-            System.out.print(" | "+Board[i]+" | ");
-        }
-        System.out.println();
-        for(int i=7; i<10; i++)
-        {
-            System.out.print(" | "+Board[i]+" | ");
+            System.out.print(board[i]+"|"+board[i+1]+"|"+board[i+2]+"|"+board[i+3]);
+            System.out.println();
         }
     }
 
@@ -70,7 +60,7 @@ public class TicTacToeGame
         System.out.println(showBoard);
         
         String optionSelected = chooseOption();
-        System.out.println(optionSelected);
+        System.out.println("Type of Player is -> "+optionSelected);
         
         displayBoard();
     }

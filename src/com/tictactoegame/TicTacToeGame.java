@@ -19,32 +19,31 @@ public class TicTacToeGame
     }
     
     
-    public static void chooseOption()
+    public static String chooseOption()
     {
         Scanner sc = new Scanner(System.in);
         System.out.print("Choose small letter 'X' or 'O' : ");
         char value = sc.next().charAt(0);
+        String optionResult = "";
+        
         if(value == 'x' || value == 'o')
         {
-            if(value == 'x')
-            {
-                System.out.println("X is For Player");
-            }
-            else if(value == 'o')
-            {
-                System.out.println("O is For Computer");
-            }
+            optionResult = (value == 'x') ? "Player" : "Computer";
         }
         else
         {
             System.out.println("Please Select X or O character Only");
         }
         
+        return optionResult;
+        
     }
 
     public static void main(String[] args)
     {
         createBoard();
-        chooseOption();
+        
+        String optionSelected = chooseOption();
+        System.out.println(optionSelected);
     }
 }

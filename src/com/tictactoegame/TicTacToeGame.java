@@ -7,11 +7,10 @@ package com.tictactoegame;
 
 import java.util.Scanner;
 
-
-
 public class TicTacToeGame 
 {
     public static char board[] = new char[10];
+    
     //UC1
     public static char[] createBoard()
     {
@@ -24,7 +23,7 @@ public class TicTacToeGame
     }
     
     //UC2
-    public static String chooseOption()
+    public static char chooseOption()
     {
         Scanner sc = new Scanner(System.in);
         System.out.print("Choose small letter 'X' or 'O' : ");
@@ -40,17 +39,46 @@ public class TicTacToeGame
             System.out.println("Please Select X or O character Only");
         }
         
-        return optionResult;   
+        return value;   
     }
     
     //UC3
     public static void displayBoard()
     {
-        for(int i=1;i<4;i++)
+        System.out.print(board[1]+"|"+board[2]+"|"+board[3]+"|");
+        System.out.println();
+        System.out.print(board[4]+"|"+board[5]+"|"+board[6]+"|");
+        System.out.println();
+        System.out.print(board[7]+"|"+board[8]+"|"+board[9]+"|");
+        System.out.println();
+    }
+    
+    //UC4
+    public static void isIndexFree()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Indix want to fill :");
+        int fillIndex = sc.nextInt();
+        
+        if(fillIndex >= 1 && fillIndex <= 9)
         {
-            System.out.print(board[i]+"|"+board[i+1]+"|"+board[i+2]+"|"+board[i+3]);
-            System.out.println();
+            if(board[fillIndex] == ' ')
+            {
+                System.out.println("Index is Empty");
+                char optionValue = chooseOption();
+                board[fillIndex] = optionValue;
+            }
+            else
+            {
+                System.out.println("Not Empty");
+            }
         }
+        else
+        {
+            System.out.println("Enter Number between 1 to 9 Only");
+        }
+        
+        displayBoard();
     }
 
     public static void main(String[] args)
@@ -59,9 +87,12 @@ public class TicTacToeGame
         System.out.println("Array Elements are:");
         System.out.println(showBoard);
         
-        String optionSelected = chooseOption();
-        System.out.println("Type of Player is -> "+optionSelected);
+        char optionSelected = chooseOption();
+        System.out.println("Option Selected is -> "+optionSelected);
         
+        System.out.println("Displaying the Board");
         displayBoard();
+        
+        isIndexFree();
     }
 }
